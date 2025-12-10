@@ -29,23 +29,54 @@
 
 //------------------------------------------------------
 
-import express from 'express';
-const app =express();
+// import express from 'express';
+// const app =express();
 
-//middleware
+// //middleware
+// app.use(express.json());
+// app.get('/',(req,res)=>{
+//     console.log("hello umaaaa")
+//     res.send("Api Success");
+// })
+// app.post('/add-user',(req,res)=>{
+//     let data=req.body;
+//     console.log(data);
+//     //logic to add data into your data base
+//     res.send("data added");
+// });
+// app.listen(7001,()=>{
+//     console.log("Server  running at port 7000");
+// })
+
+//------------------------------------------------------
+
+
+import express from 'express';
+const app = express();
 app.use(express.json());
 
-
-app.get('/',(req,res)=>{
-    res.send("Api Success");
+app.get('/', (req,res) =>{
+    res.send("Hello from backend");
 })
 
 app.post('/add-user',(req,res)=>{
-    let data=req.body;
-    console.log(data);
-    //logic to add data into your data base
-    res.send("data added");
-});
-app.listen(7000,()=>{
-    console.log("Server  running at port 7000");
+    let mydata = req.body;
+    console.log(mydata)
+    res.send("data is added");
+})
+
+app.put('/update-user',(req,res)=>{
+    let mydata = req.body;
+    console.log(mydata)
+    res.send("data is updated");
+})
+
+app.delete('/delete-user',(req,res)=>{
+    let mydata = req.body;
+    console.log(mydata)
+    res.send("data is deleted");
+})
+
+app.listen(7001,()=>{
+    console.log(`server is running at port ${7001}`);
 })
